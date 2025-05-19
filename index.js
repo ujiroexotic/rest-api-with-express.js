@@ -1,10 +1,6 @@
 const express = require('express');
-const itemRoutes = require('./routes/items');
-app.use('/items', itemRoutes);
-
-
 const app = express();
-const PORT = 3000;
+const itemRoutes = require('./routes/items');
 
 app.use(express.json());
 
@@ -13,12 +9,12 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-// Items routes
+// Mount items router
 app.use('/items', itemRoutes);
 
 // 404 handler
-app.use((req, res) => {
-  res.status(404).json({ error: 'Route not found' });
+app.use((req, res, next) => {
+  res.status(404).json({ error: 'Not Found' });
 });
 
 // Global error handler
@@ -27,6 +23,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

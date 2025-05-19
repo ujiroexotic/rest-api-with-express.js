@@ -1,28 +1,20 @@
-# Simple REST API with Express.js
+# Express.js REST API - Items
 
-## Overview
-This is a simple RESTful API using Express.js with CRUD operations on an in-memory store.
+A simple RESTful API using Express.js with in-memory CRUD functionality.
 
 ## Features
-- Full CRUD: Create, Read, Update, Delete
-- Middleware and 404 route handling
-- Modular code structure
-- Error handling
 
-## Endpoints
-
-| Method | Endpoint       | Description            |
-|--------|----------------|------------------------|
-| GET    | /items         | Get all items          |
-| GET    | /items/:id     | Get item by ID         |
-| POST   | /items         | Create new item        |
-| PUT    | /items/:id     | Update existing item   |
-| DELETE | /items/:id     | Delete item by ID      |
+- In-memory data storage
+- CRUD operations for items
+- Middleware for JSON parsing
+- 404 and global error handling
+- Modular route structure
 
 ## Sample Item
+
 ```json
 {
-  "name": "Notebook",
-  "description": "A ruled notebook"
+  "id": 1,
+  "name": "Book",
+  "description": "A story about adventure"
 }
-
