@@ -1,5 +1,7 @@
 const express = require('express');
 const itemRoutes = require('./routes/items');
+app.use('/items', itemRoutes);
+
 
 const app = express();
 const PORT = 3000;
